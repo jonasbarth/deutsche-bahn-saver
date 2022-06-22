@@ -1,0 +1,28 @@
+{
+  "name": "deutsche-bahn-saver",
+  "version": "1.0.0",
+  "description": "Connects to my deutsche bahn API and saves the data",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "deutsche",
+    "bahn",
+    "grpc",
+    "client",
+    "saving"
+  ],
+  "author": "jobarth",
+  "license": "ISC",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.6.7",
+    "@grpc/proto-loader": "^0.6.13",
+    "google-protobuf": "^3.20.1",
+    "minimist": "^1.2.6",
+    "mongodb": "^4.7.0",
+    "node-cron": "^3.0.1",
+    "objects-to-csv": "^1.3.6",
+    "uuid": "^8.3.2"
+  }
+}
