@@ -8,7 +8,7 @@ const cron = require('node-cron');
 var argv = require('minimist')(process.argv.slice(2));
 
 const eva = argv["eva"]
-console.log(PROTO_PATH)
+
 // Suggested options for similarity to existing grpc.load behavior
 var packageDefinition = protoLoader.loadSync(
     PROTO_PATH,
