@@ -8,4 +8,4 @@ RUN npm install
 
 COPY . .
 
-CMD [ "node", "server.js"]
+CMD [ "node", "main.js", "8002549"]
