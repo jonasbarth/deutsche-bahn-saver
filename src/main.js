@@ -1,4 +1,4 @@
-var PROTO_PATH = 'C:/Users/Jonas/Desktop/Projects/deutsche-bahn/deutsche-bahn-data/deutsche-bahn-data-acquisition/src/main/proto/timetable.proto';
+var PROTO_PATH = '../assets/timetable.proto';
 var grpc = require('@grpc/grpc-js');
 var protoLoader = require('@grpc/proto-loader');
 const ObjectsToCsv = require('objects-to-csv');
