@@ -1,5 +1,5 @@
 var path = require("path")
-var PROTO_PATH = path.resolve('../assets/timetable.proto');
+var PROTO_PATH = path.resolve('assets/timetable.proto');
 var grpc = require('@grpc/grpc-js');
 var protoLoader = require('@grpc/proto-loader');
 const ObjectsToCsv = require('objects-to-csv');
