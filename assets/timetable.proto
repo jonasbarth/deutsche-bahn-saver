@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option java_package = "com.jobarth.deutsche.bahn.data.acquisition.server";
+
+service TimetableService {
+  rpc getDepartedAfter(TimetableRequest) returns (stream TimetableResponse) {}
+}
+
+message TimetableRequest {
+  string eva = 1;
+  uint64 departedAfter = 2;
+}
+
+message TimetableResponse {
+  enum TripCategory {
+    ICE = 0;
+    RB = 1;
+    RE = 2;
+    IC = 3;
+    EC = 4;
+    ME = 5;
+    TGV = 6;
+    FLX = 7;
+    D = 8;
+    HBX = 9;
+    FEX = 10;
+  }
+  string eva = 1;
+  string stationName = 2;
+  string stopId = 3;
+  TripCategory tripCategory = 4;
+  uint32 trainNumber = 5;
+  string plannedArrival = 6;
+  string actualArrival = 7;
+  string plannedDeparture = 8;
+  string actualDeparture = 9;
+  string plannedArrivalPlatform = 10;
+  string actualArrivalPlatform = 11;
+  string plannedDeparturePlatform = 12;
+  string actualDeparturePlatform = 13;
+}
