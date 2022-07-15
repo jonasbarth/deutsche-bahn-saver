@@ -1,8 +1,8 @@
 FROM node:16
 
-WORKDIR /
+WORKDIR /deutsche-bahn-saver/app
 
-ADD https://github.com/jonasbarth/deutsche-bahn-data/blob/main/deutsche-bahn-data-acquisition/src/main/proto/timetable.proto /assets/timetable.proto
+ADD https://github.com/jonasbarth/deutsche-bahn-data/blob/main/deutsche-bahn-data-acquisition/src/main/proto/timetable.proto ./assets/timetable.proto
 
 COPY package*.json ./
 
