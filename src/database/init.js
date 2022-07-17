@@ -1,18 +1,16 @@
-const redis = require('redis')
 const config = require('config')
 const url = config.get('database.url')
 
-const client = redis.createClient({
-    url: `redis://${url}`
-})
+var MongoClient = require('mongodb').MongoClient;
 
-client.on('connect', function() {
-    console.log('Connected!');
+MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+
+    var dbo = db.db("deutsche-bahn");
     
-    client.set("name", "Flavio")
-    client.quit();
+    dbo.createCollection("stops", function(err, res) {
+        if (err) throw err;
+        console.log("Collection created!");
+        db.close();
+    });
 });
-
-
-
-
