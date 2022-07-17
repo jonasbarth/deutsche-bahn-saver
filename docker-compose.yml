@@ -2,3 +2,13 @@ version: '3'
 services:
   deutsche-bahn-saver:
     image: jonas/deutsche-bahn-saver
+    links:
+      - "mongo:mongoservice"
+
+  mongo:
+    image: mongo:4.0.4
+    ports:
+      - 27017:27017
+    
+    volumes:
+      - /home/jonas/mongodb/database:/data/db
