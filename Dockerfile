@@ -8,4 +8,5 @@ RUN npm install
 
 COPY . .
 
-CMD [ "node", "src/main.js", "8002549"]
+#CMD [ "node", "src/main.js", "8002549"]
+CMD [ "node", "src/database/init.js"]
