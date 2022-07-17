@@ -1,6 +1,7 @@
 version: '3'
 services:
   deutsche-bahn-saver:
+    build: ./
     image: jonas/deutsche-bahn-saver
     links:
       - "mongo:mongoservice"
