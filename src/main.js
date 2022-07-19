@@ -3,6 +3,7 @@ var PROTO_PATH = path.resolve('assets/timetable.proto');
 var grpc = require('@grpc/grpc-js');
 var protoLoader = require('@grpc/proto-loader');
 const cron = require('node-cron');
+const config = require('config')
 const url = config.get('acquisition-server.url')
 
 
