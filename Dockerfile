@@ -9,4 +9,3 @@ RUN npm install
 COPY . .
 
 ENTRYPOINT [ "node", "src/main.js"]
-
