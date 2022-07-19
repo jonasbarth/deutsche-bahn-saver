@@ -1,5 +1,8 @@
 {
 	"database": {
 		"url": "mongodb://mongoservice:27017/"
+	},
+	"acquisition-server": {
+		"url": "db-data-acquisition:5000"
 	}
 }

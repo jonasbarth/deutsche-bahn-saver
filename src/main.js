@@ -2,8 +2,9 @@ var path = require("path")
 var PROTO_PATH = path.resolve('assets/timetable.proto');
 var grpc = require('@grpc/grpc-js');
 var protoLoader = require('@grpc/proto-loader');
-const ObjectsToCsv = require('objects-to-csv');
 const cron = require('node-cron');
+const url = config.get('acquisition-server.url')
+
 
 var argv = require('minimist')(process.argv.slice(2));
 
@@ -21,7 +22,7 @@ var packageDefinition = protoLoader.loadSync(
 var protoDescriptor = grpc.loadPackageDefinition(packageDefinition);
 
 cron.schedule('*/2 * * * *', () => {
-    var client = new protoDescriptor.TimetableService('localhost:8080', grpc.credentials.createInsecure());
+    var client = new protoDescriptor.TimetableService(url, grpc.credentials.createInsecure());
 
     const timestamp = Math.round(Date.now() / 1000) - 120;
 
@@ -40,9 +41,9 @@ cron.schedule('*/2 * * * *', () => {
     });
     call.on('end', () => {
         if (responses.length != 0) {
-            const csv = new ObjectsToCsv(responses);
-            console.log(responses);
-            csv.toDisk(`./${eva}.csv`, { append: true });
+            for (let stop in responses) {
+                console.log(stop);
+            }
         }
     })
   });
