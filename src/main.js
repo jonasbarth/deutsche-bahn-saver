@@ -29,7 +29,7 @@ cron.schedule('*/2 * * * *', () => {
 
     let responses = []
 
-    console.log(`Sending ${request} to ${url}`)
+    console.log(`Sending ${JSON.stringify(request)} to ${url}`)
     var call = client.getDepartedAfter(request);
     call.on('data', function(response) {
         responses.push(response);

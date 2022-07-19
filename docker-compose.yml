@@ -4,7 +4,7 @@ services:
     build: ./
     image: jonas/deutsche-bahn-saver
     command:
-      - "8002549"
+      - "--eva=8002549"
     links:
       - "mongo:mongoservice"
       - "deutsche-bahn-data-acquisition:db-data-acquisition"
