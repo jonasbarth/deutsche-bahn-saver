@@ -18,7 +18,7 @@ services:
       - /home/jonas/mongodb/database:/data/db
 
   deutsche-bahn-data-acquisition:
-    build: https://github.com/jonasbarth/deutsche-bahn-data/blob/main/Dockerfile
+    build: https://github.com/jonasbarth/deutsche-bahn-data.git
     image: jonas/deutsche-bahn-data-acquisition
     ports:
       - 5000:5000
