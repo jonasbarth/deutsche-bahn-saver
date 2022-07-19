@@ -32,12 +32,14 @@ cron.schedule('*/2 * * * *', () => {
     console.log(`Sending ${JSON.stringify(request)} to ${url}`)
     var call = client.getDepartedAfter(request);
     call.on('data', function(response) {
+        console.log(`Got ${JSON.stringify(dataresponse)}`);
         responses.push(response);
     });
     call.on('error', (err) => {
         console.error(err);
     });
     call.on('end', () => {
+        console.log("Ending response");
         if (responses.length != 0) {
             for (let stop in responses) {
                 console.log(stop);
