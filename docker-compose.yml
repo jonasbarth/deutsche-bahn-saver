@@ -3,6 +3,8 @@ services:
   deutsche-bahn-saver:
     build: ./
     image: jonas/deutsche-bahn-saver
+    command:
+      - "8002549"
     links:
       - "mongo:mongoservice"
 
