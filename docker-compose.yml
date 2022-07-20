@@ -1,8 +1,15 @@
 version: '3'
 services:
-  deutsche-bahn-saver:
+  deutsche-bahn-saver-hamburg-hbf:
     build: ./
-    image: jonas/deutsche-bahn-saver
+    command:
+      - "--eva=8002549"
+    links:
+      - "mongo:mongoservice"
+      - "deutsche-bahn-data-acquisition:db-data-acquisition"
+
+  deutsche-bahn-saver-berlin-hbf:
+    build: ./
     command:
       - "--eva=8002549"
     links:
@@ -23,3 +30,10 @@ services:
     ports:
       - 5000:5000
       - 5001:5001
+
+  deutsche-bahn-station:
+    build: https://github.com/jonasbarth/deutsche-bahn-station.git#main
+    ports:
+      - 6000:6000
+    links:
+      - "mongo:mongoservice"
