@@ -32,7 +32,7 @@ cron.schedule('*/2 * * * *', () => {
     console.log(`Sending ${JSON.stringify(request)} to ${url}`)
     var call = client.getDepartedAfter(request);
     call.on('data', function(response) {
-        console.log(`Got ${JSON.stringify(dataresponse)}`);
+        console.log(`Got ${JSON.stringify(response)}`);
         responses.push(response);
     });
     call.on('error', (err) => {
