@@ -40,7 +40,9 @@ cron.schedule('*/2 * * * *', () => {
         console.error(err);
     });
     call.on('end', () => {
-        console.log(`Ending response. Writing ${responses.length} stops.`);
-        writeStop(responses);
-    })
-  });
+        if (responses.length != 0) {
+            console.log(`Ending response. Writing ${responses.length} stops.`);
+            writeStop(responses);
+        }    
+  })
+});
