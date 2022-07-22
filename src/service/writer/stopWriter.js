@@ -6,7 +6,7 @@ var MongoClient = require('mongodb').MongoClient;
 function writeStop(stop) {
     MongoClient.connect(url, function(err, db) {
         if (err) throw err;
-
+        var dbo = db.db("deutsche-bahn");
         dbo.collection("stop").insertMany(stop, function(err, res) {
             if (err) throw err;
             console.log(`${JSON.stringify(stop)} was inserted`);
