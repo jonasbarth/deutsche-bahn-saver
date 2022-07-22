@@ -5,6 +5,7 @@ var protoLoader = require('@grpc/proto-loader');
 const cron = require('node-cron');
 const config = require('config')
 const url = config.get('acquisition-server.url')
+var writeStop = require('service/writer/stopWriter')
 
 
 var argv = require('minimist')(process.argv.slice(2));
@@ -39,11 +40,7 @@ cron.schedule('*/2 * * * *', () => {
         console.error(err);
     });
     call.on('end', () => {
-        console.log("Ending response");
-        if (responses.length != 0) {
-            for (let stop in responses) {
-                console.log(stop);
-            }
-        }
+        console.log(`Ending response. Writing ${responses.length} stops.`);
+        writeStop(responses);
     })
   });
