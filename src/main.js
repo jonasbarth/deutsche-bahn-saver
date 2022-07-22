@@ -5,7 +5,7 @@ var protoLoader = require('@grpc/proto-loader');
 const cron = require('node-cron');
 const config = require('config')
 const url = config.get('acquisition-server.url')
-var writeStop = require('service/writer/stopWriter')
+var writeStop = require('./service/writer/stopWriter')
 
 
 var argv = require('minimist')(process.argv.slice(2));
