@@ -23,8 +23,10 @@ var packageDefinition = protoLoader.loadSync(
     });
 var protoDescriptor = grpc.loadPackageDefinition(packageDefinition);
 
+var client = new protoDescriptor.TimetableService(url, grpc.credentials.createInsecure());
+
+
 cron.schedule('*/2 * * * *', () => {
-    var client = new protoDescriptor.TimetableService(url, grpc.credentials.createInsecure());
     const timestamp = Math.round(Date.now() / 1000) - 120;
     var request = {eva: eva, departedAfter: timestamp}
 
